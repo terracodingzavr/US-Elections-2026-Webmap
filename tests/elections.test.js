@@ -23,7 +23,9 @@ test('ten colors and symmetric exact boundaries match the legend', () => {
   assert.equal(marginLegend.length, 10);
   assert.equal(marginColor(0), neutral.tie);
   assert.equal(marginColor(null), neutral.missing);
-  for (const [index, value] of [0.01, 5, 10, 20, 30].entries()) {
+  assert.equal(marginColor(30), marginLegend[1].color);
+  assert.equal(marginColor(-30), marginLegend[8].color);
+  for (const [index, value] of [0.01, 5, 10, 20, 30.01].entries()) {
     assert.equal(marginColor(value), marginLegend[4 - index].color);
     assert.equal(marginColor(-value), marginLegend[5 + index].color);
   }

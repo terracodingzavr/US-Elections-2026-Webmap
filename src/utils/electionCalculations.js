@@ -55,13 +55,11 @@ export function summarizeStates(features, races) {
       }
       votes.other = totalVotes - votes.D - votes.R;
     }
-    const timestamp = known.map((r) => r.updatedAt || r.retrievedAt).filter(Boolean).sort();
     const statuses = new Set(known.map((r) => r.status));
     const result = summarizeRace({
       id: 'state-' + state, office: 'house', geoid: state, stateFips: state, kind: 'general',
       status: statuses.size === 1 ? known[0].status : 'mixed-preliminary', totalVotes,
       districtCount: entries.length, availableCount: known.length, comparable,
-      firstUpdatedAt: timestamp[0] ?? null, updatedAt: timestamp.at(-1) ?? null,
       sources: [...new Map(known.map((r) => [r.source, { source: r.source, url: r.url }])).values()],
       candidates: [
         { name: 'Демократы', party: 'D', votes: comparable ? votes.D : null },

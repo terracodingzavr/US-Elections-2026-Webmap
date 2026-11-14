@@ -14,7 +14,6 @@ export default function App() {
   const [metric, setMetric] = useState('margin');
   const [selected, setSelected] = useState('');
   const [selectedRace, setSelectedRace] = useState('');
-  const [resetKey, setResetKey] = useState(0);
   const [retry, setRetry] = useState(0);
   const [loaded, setLoaded] = useState(null);
   const [error, setError] = useState(null);
@@ -32,7 +31,7 @@ export default function App() {
         if (!current) return;
         const index = indexRaces(result);
         const races = isHouse && geography === 'states' ? summarizeStates(districts.features, index) : index;
-        setLoaded({ key, features: shape.features, races, date: result.snapshotDate });
+        setLoaded({ key, features: shape.features, races });
         setError(null);
       })
       .catch((failure) => { if (current) setError({ key, message: failure.message }); });
@@ -82,23 +81,20 @@ export default function App() {
               {selection.map((item) => <option key={item.geoid} value={item.geoid}>{areaName(item)}</option>)}
             </select>
           </label>
-          <button type="button" className="quiet-button" disabled={loading} onClick={() => setResetKey((n) => n + 1)}>Вся карта</button>
         </div>
         {loading ? <div className="map-placeholder" role={failed ? 'alert' : 'status'}>
           {failed ? <><p>Ошибка загрузки данных. {error.message}</p><button type="button" onClick={() => {
             setError(null); setRetry((n) => n + 1);
           }}>Повторить</button></> : 'Загружаются результаты и границы…'}
         </div> : <ElectionMap key={year + '-' + geography} features={loaded.features}
-          view={key + '-' + selectedRace} {...{ metric, raceFor, selected, select, resetKey }} />}
+          view={key} {...{ metric, raceFor, selected, select }} />}
         <ElectionLegend {...{ metric, office }} />
       </section>
       <ElectionInfoPanel selected={territory} race={raceFor(selected)} races={loaded?.races.get(selected)}
         selectRace={setSelectedRace} clear={() => select('')} featureCount={selection.length} office={office} />
     </div>
     <footer className="footer">
-      <span>Границы · U.S. Census Bureau</span>
-      <span>По состоянию на {loaded?.date ? loaded.date.split('-').reverse().join('.') : '—'} · статус указан для каждой гонки</span>
-      <a href="https://github.com/terracodingzavr/MoscowElectionwebmap">По мотивам карты «Выборы Москвы»</a>
+      <a href="https://terracodingzavr.github.io/MoscowElectionwebmap/">За основу взята карта «Выборы Москвы»</a>
     </footer>
   </main>;
 }

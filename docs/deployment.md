@@ -12,7 +12,7 @@
 1. Склонируйте [исходный набор Pushbuild](https://github.com/pushbuild/us-2026-election-results). Использован коммит 6bc4020986834665b90ababf889bd2cb5ce17bcd. Для воспроизведения снимка примените именно его.
 2. Для обновления задайте дату и путь к новому полному [снимку Polling Desk](https://polling-desk.com/results.csv) и обновите data-snapshots/dc.json при появлении нового подсчёта.
 3. Если издатель подтвердил сертификацию отдельной гонки, внесите полный документ гонки в data-snapshots/verified-overrides.json, включая status=certified, дату, источник и при наличии winnerName. Записи в overrides применяются после импорта, поэтому их требуется актуализировать при смене снимка.
-4. Выполните импорт и проверки. Обновите docs/sources.md и дату в README, выступающие журналом версий.
+4. Выполните импорт и проверки. Обновите журнал версий docs/sources.md.
 
 ```bash
 python scripts/process_elections.py /path/to/pushbuild/data

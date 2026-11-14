@@ -1,12 +1,11 @@
 import React from 'react';
-import { marginLegend, neutral, shareLegend, winnerLegend } from '../utils/colorScales.js';
+import { marginLegend, neutral, winnerLegend } from '../utils/colorScales.js';
 
 export default function ElectionLegend({ metric, office }) {
-  const options = { margin: marginLegend, winner: winnerLegend, share: shareLegend };
+  const options = { margin: marginLegend, winner: winnerLegend };
   const heading = {
-    margin: 'Преимущество, п. п.',
+    margin: 'Преимущество, %',
     winner: office === 'house' ? 'Партия победителя или лидера' : 'Партия победителя или лидера гонки',
-    share: 'Доля голосов лидера',
   };
   return <section className="legend" aria-label="Легенда">
     <div className="legend-title">

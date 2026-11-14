@@ -1,6 +1,7 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { GeoJSON, MapContainer, useMap } from 'react-leaflet';
-import { areaName, formatMargin } from '../utils/geojsonUtils.js';
+import { formatMargin, marginParty } from '../utils/geojsonUtils.js';
+import { parties } from '../config/elections.js';
 import { featureColor } from '../utils/colorScales.js';
 
 const regions = [
@@ -16,7 +17,7 @@ function alaskaInset(geometry) {
   return { ...geometry, coordinates: move(geometry.coordinates) };
 }
 
-function FitRegion({ bounds, resetKey }) {
+function FitRegion({ bounds }) {
   const map = useMap();
   useEffect(() => {
     const container = map.getContainer();
@@ -29,16 +30,25 @@ function FitRegion({ bounds, resetKey }) {
     });
     observer.observe(container);
     return () => observer.disconnect();
-  }, [bounds, map, resetKey]);
+  }, [bounds, map]);
   return null;
 }
 
-function MapRegion({ region, features, raceFor, metric, selected, select, view, resetKey }) {
+function MapRegion({ region, features, raceFor, metric, selected, select, view }) {
   const data = useMemo(() => ({
     type: 'FeatureCollection', features: features.filter(({ properties }) => region.key === 'main'
       ? !['AK', 'HI'].includes(properties.code) : properties.code === region.key)
       .map((feature) => region.key === 'AK' ? { ...feature, geometry: alaskaInset(feature.geometry) } : feature),
   }), [features, region.key]);
+
+  const layerRef = useRef(null);
+  const tooltipContext = useRef({ raceFor, metric });
+  useLayoutEffect(() => {
+    tooltipContext.current = { raceFor, metric };
+    layerRef.current?.eachLayer((layer) => {
+      if (layer.isTooltipOpen()) layer.getTooltip().update();
+    });
+  }, [raceFor, metric]);
 
   const style = ({ properties }) => ({
     color: selected === properties.geoid ? '#191c23' : '#fff',
@@ -48,19 +58,24 @@ function MapRegion({ region, features, raceFor, metric, selected, select, view, 
 
   const bind = (feature, layer) => {
     const properties = feature.properties;
-    const tooltip = document.createElement('div');
-    const title = document.createElement('strong');
-    title.textContent = areaName(properties);
-    const line = document.createElement('div');
-    const race = raceFor(properties.geoid);
-    line.textContent = race ? (race.leader?.name ?? 'Лидер не установлен') : 'Выборов не было или нет данных';
-    tooltip.append(title, line);
-    if (race?.demMargin != null) {
-      const margin = document.createElement('div');
-      margin.textContent = 'D–R ' + formatMargin(race.demMargin);
-      tooltip.append(margin);
-    }
-    layer.bindTooltip(tooltip, { sticky: true });
+    layer.bindTooltip(() => {
+      const tooltip = document.createElement('div');
+      const title = document.createElement('strong');
+      const { raceFor: currentRaceFor, metric: currentMetric } = tooltipContext.current;
+      const race = currentRaceFor(properties.geoid);
+      const byParty = currentMetric === 'margin' || Boolean(race?.districtCount);
+      const advantage = byParty ? race?.demMargin : race?.leaderMargin;
+      const name = byParty ? parties[marginParty(advantage)] : race?.leader?.name;
+      const tie = byParty ? advantage === 0 : race?.tie;
+      title.textContent = name ?? (tie ? 'Равенство голосов' : 'Нет данных о преимуществе');
+      tooltip.append(title);
+      if (advantage != null) {
+        const margin = document.createElement('div');
+        margin.textContent = formatMargin(advantage);
+        tooltip.append(margin);
+      }
+      return tooltip;
+    }, { sticky: true });
     layer.on({
       click: () => select(properties.geoid),
       mouseover: () => { layer.setStyle({ color: '#222b3a', weight: 2 }); layer.bringToFront(); },
@@ -76,13 +91,13 @@ function MapRegion({ region, features, raceFor, metric, selected, select, view, 
     zoomSnap={0.25} maxZoom={12} scrollWheelZoom={false} dragging={region.key === 'main'}
     doubleClickZoom={region.key === 'main'} touchZoom={region.key === 'main'}
     keyboard={region.key === 'main'} boxZoom={region.key === 'main'} zoomAnimation={false}>
-    <FitRegion bounds={region.bounds} resetKey={resetKey} />
-    <GeoJSON key={view} data={data} style={style} onEachFeature={bind} />
+    <FitRegion bounds={region.bounds} />
+    <GeoJSON key={view} ref={layerRef} data={data} style={style} onEachFeature={bind} />
   </MapContainer>;
 }
 
-export default function ElectionMap({ features, raceFor, metric, selected, select, view, resetKey }) {
-  const props = { features, raceFor, metric, selected, select, view, resetKey };
+export default function ElectionMap({ features, raceFor, metric, selected, select, view }) {
+  const props = { features, raceFor, metric, selected, select, view };
   return <div className="map-layout" data-selected={selected ?? ''}>
     <MapRegion region={regions[0]} {...props} />
     <div className="insets">

@@ -16,7 +16,6 @@ export const statusLabels = {
 };
 
 export const metrics = {
-  margin: 'Преимущество D–R',
+  margin: 'Преимущество партии',
   winner: 'Победитель / лидер',
-  share: 'Доля голосов',
 };

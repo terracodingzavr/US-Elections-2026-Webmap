@@ -24,4 +24,9 @@ export function areaName({ ru, district, delegate }) {
 const number = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2 });
 export const formatNumber = (value) => value == null ? '—' : number.format(value);
 export const formatPercent = (value) => value == null ? '—' : number.format(value) + '%';
-export const formatMargin = (value) => value == null ? '—' : (value > 0 ? '+' : '') + number.format(value) + ' п. п.';
+export const formatMargin = (value) => formatPercent(value == null ? null : Math.abs(value));
+
+export function marginParty(value) {
+  if (!Number.isFinite(value) || value === 0) return null;
+  return value > 0 ? 'D' : 'R';
+}
