@@ -13,7 +13,9 @@ export default function ElectionInfoPanel({ selected, race, races = [], selectRa
 
   const isStateTotal = Boolean(race?.districtCount);
   const status = race ? statusLabels[race.status] : null;
-  const leadingParty = parties[marginParty(race?.demMargin)];
+  const leaderParty = race?.leader?.party;
+  const leadingParty = parties[marginParty(race?.demMargin)] ??
+    (leaderParty === 'other' ? race.leader.partyRaw || parties.other : parties[leaderParty]);
   return <aside className="info panel" aria-label="Сведения о территории">
     <div className="info-heading"><h2>{areaName(selected)}</h2>
       <button type="button" className="quiet-button" aria-label="Закрыть сведения" onClick={clear}>×</button></div>
@@ -25,14 +27,18 @@ export default function ElectionInfoPanel({ selected, race, races = [], selectRa
     </label>}
     {!race ? <p>{office === 'senate' ? 'Выборов в Сенат в этом штате в 2026 году не было.' : 'Данные этой территории отсутствуют.'}</p> : <>
       <p className="eyeline">{race.kind === 'special' ? 'Специальные выборы' : 'Очередные выборы'} · {status}</p>
-      {race.basis === 'first-choice' && <p className="quiet">Первые предпочтения. Лидер по этому подсчёту может отличаться от победителя после перераспределения голосов.</p>}
-      {isStateTotal && <p className="quiet">{race.availableCount} из {race.districtCount} округов имеют данные.
+      {race.noBallot && <p className="quiet">Кандидат избран без голосования.</p>}
+      {race.basis === 'first-choice' && <p className="quiet">{isStateTotal
+        ? 'Сводка по первым предпочтениям в округах.'
+        : 'Первые предпочтения. Лидер по этому подсчёту может отличаться от победителя после перераспределения голосов.'}</p>}
+      {isStateTotal && <p className="quiet">Подсчёт по {race.availableCount} из {race.districtCount} округов.
+        {race.noBallotCount > 0 && ' В одном округе кандидат избран без голосования.'}
         {!race.comparable && ' Сводный показатель недоступен: по части округов голоса или данные по двум партиям несопоставимы.'}</p>}
       <ElectionPie race={race} />
       <dl className="numbers">
         <div><dt>{isStateTotal ? 'Лидер по голосам' : race.declaredWinner ? 'Победитель' : 'Лидер подсчёта'}</dt>
           <dd>{race.tie && !race.declaredWinner ? 'Равенство голосов' : race.leader?.name ?? '—'}</dd></div>
-        <div><dt>Преимущество партии</dt><dd>{leadingParty && leadingParty + ' · '}{formatMargin(race.demMargin)}</dd></div>
+        <div><dt>Преимущество партии</dt><dd>{race.demMargin === 0 ? 'Равные доли' : leadingParty ?? '—'}</dd></div>
         {!isStateTotal && <div><dt>Разрыв между лидерами</dt><dd>{formatMargin(race.leaderMargin)}</dd></div>}
       </dl>
       <table className="results">

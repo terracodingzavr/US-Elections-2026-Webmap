@@ -40,6 +40,7 @@ h1 { font-weight: 730; font-size: clamp(1.7rem, 4vw, 3.1rem); letter-spacing: -.
 .map-toolbar select, .race-picker select { color: #172033; min-width: 0; max-width: 100%; }
 .quiet-button { font-size: .78rem; font-weight: 650; white-space: nowrap; }
 .map-layout { background: #eef2f7; }
+.map svg path:focus { outline: none; }
 .map.leaflet-container { background: #eef2f7; font-family: inherit; }
 .map-main, .map-placeholder { min-height: 300px; height: clamp(325px, 41vw, 540px); }
 .map-placeholder { display: grid; place-content: center; justify-items: center; text-align: center; background: #eef2f7; color: var(--muted); padding: 16px; }
@@ -53,8 +54,6 @@ h1 { font-weight: 730; font-size: clamp(1.7rem, 4vw, 3.1rem); letter-spacing: -.
 .legend-classes { display: grid; grid-template-columns: repeat(var(--class-count), minmax(0, 1fr)); gap: 2px; }
 .legend-class { display: grid; gap: 4px; text-align: center; color: var(--muted); font-size: clamp(.53rem, 1.15vw, .73rem); }
 .swatch { display: block; height: 15px; border-radius: 2px; }
-.legend-notes { display: flex; flex-wrap: wrap; gap: 5px 14px; color: var(--muted); font-size: .72rem; margin-top: 9px; }
-.legend-notes i { border: 1px solid var(--line); display: inline-block; width: 9px; height: 9px; }
 .info { padding: 14px; min-width: 0; }
 .info h2 { font-size: 1.15rem; line-height: 1.2; margin: 0; }
 .info p { font-size: .82rem; line-height: 1.55; }

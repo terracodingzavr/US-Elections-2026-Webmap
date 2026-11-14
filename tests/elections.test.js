@@ -9,6 +9,7 @@ test('D–R and the candidate margin use their respective votes and all valid vo
   const entry = race(100, cand('One', 'D', 35), cand('Two', 'D', 15), cand('Three', 'R', 30), cand('Four', 'other', 20));
   assert.equal(entry.demMargin, 20);
   assert.equal(entry.leaderMargin, 5);
+  assert.equal(entry.leaderShare, 35);
   assert.equal(entry.candidates[3].share, 20);
 });
 test('ties and incomplete records do not acquire a winner or fabricated margin', () => {
@@ -38,4 +39,25 @@ test('state totals aggregate counts and require all districts to be comparable',
   assert.equal(summarizeStates(shapes, all).get('48')[0].demMargin, 15);
   all.delete('4802');
   assert.equal(summarizeStates(shapes, all).get('48')[0].demMargin, null);
+});
+
+test('state totals accept a verified ballot omission and uniformly ranked first choices', () => {
+  const shapes = ['2301', '2302', '2303'].map((geoid) => ({ properties: { geoid, stateFips: '23' } }));
+  const counted = (candidates, absentMajorParties) => summarizeRace({
+    totalVotes: 100, candidates, absentMajorParties, basis: 'first-choice',
+  });
+  const one = counted([cand('A', 'D', 70), cand('B', 'R', 30)]);
+  const two = counted([cand('C', 'D', 60), cand('Other', 'other', 40)], ['R']);
+  const noBallot = summarizeRace({ noBallot: true, totalVotes: null, candidates: [cand('D', 'D', null)] });
+  const all = new Map([['2301', [one]], ['2302', [two]], ['2303', [noBallot]]]);
+  const [state] = summarizeStates(shapes, all).get('23');
+  assert.equal(state.demMargin, 50);
+  assert.equal(state.basis, 'first-choice');
+  assert.equal(state.availableCount, 2);
+  assert.equal(state.noBallotCount, 1);
+  assert.equal(noBallot.leaderShare, null);
+  assert.equal(noBallot.leader.name, 'D');
+  assert.equal(two.demMargin, null);
+  all.set('2302', [counted(two.candidates)]);
+  assert.equal(summarizeStates(shapes, all).get('23')[0].demMargin, null);
 });

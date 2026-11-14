@@ -1,5 +1,5 @@
 import React from 'react';
-import { marginLegend, neutral, winnerLegend } from '../utils/colorScales.js';
+import { marginLegend, winnerLegend } from '../utils/colorScales.js';
 
 export default function ElectionLegend({ metric, office }) {
   const options = { margin: marginLegend, winner: winnerLegend };
@@ -18,10 +18,6 @@ export default function ElectionLegend({ metric, office }) {
         <span className="swatch" style={{ background: item.color }} />
         <span>{item.label}</span>
       </div>)}
-    </div>
-    <div className="legend-notes">
-      <span><i style={{ background: neutral.missing }}/> {office === 'senate' ? 'Выборов не было или нет данных' : 'Показатель недоступен'}</span>
-      <span><i style={{ background: neutral.tie }}/> {metric === 'margin' ? 'Равные доли D и R' : 'Равенство голосов'}</span>
     </div>
   </section>;
 }

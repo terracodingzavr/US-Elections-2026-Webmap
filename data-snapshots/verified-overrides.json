@@ -104,5 +104,773 @@
         "votes": 1712586
       }
     ]
+  },
+  {
+    "id": "house-0604-general",
+    "office": "house",
+    "geoid": "0604",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/4",
+    "contest": "U.S. House of Representatives District 4",
+    "totalVotes": 138653,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Eric Jones",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 71227
+      },
+      {
+        "name": "Mike Thompson",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 67426
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0606-general",
+    "office": "house",
+    "geoid": "0606",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/6",
+    "contest": "U.S. House of Representatives District 6",
+    "totalVotes": 184378,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Richard Pan",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 108065
+      },
+      {
+        "name": "Kevin Kiley",
+        "party": "other",
+        "partyRaw": "NPP",
+        "votes": 76313
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0607-general",
+    "office": "house",
+    "geoid": "0607",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/7",
+    "contest": "U.S. House of Representatives District 7",
+    "totalVotes": 175659,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Doris Matsui",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 97765
+      },
+      {
+        "name": "Mai Vang",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 77894
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0611-general",
+    "office": "house",
+    "geoid": "0611",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/11",
+    "contest": "U.S. House of Representatives District 11",
+    "totalVotes": 263725,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Scott Wiener",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 142519
+      },
+      {
+        "name": "Connie Chan",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 121206
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0612-general",
+    "office": "house",
+    "geoid": "0612",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/12",
+    "contest": "U.S. House of Representatives District 12",
+    "totalVotes": 196652,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Lateefah Simon",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 158425
+      },
+      {
+        "name": "Jamie Joyce",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 38227
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0614-general",
+    "office": "house",
+    "geoid": "0614",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/14",
+    "contest": "U.S. House of Representatives District 14",
+    "totalVotes": 159728,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Aisha Wahab",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 91892
+      },
+      {
+        "name": "Melissa Hernandez",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 67836
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0629-general",
+    "office": "house",
+    "geoid": "0629",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/29",
+    "contest": "U.S. House of Representatives District 29",
+    "totalVotes": 149409,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Luz Maria Rivas",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 87237
+      },
+      {
+        "name": "Angélica María Dueñas",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 62172
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0634-general",
+    "office": "house",
+    "geoid": "0634",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/34",
+    "contest": "U.S. House of Representatives District 34",
+    "totalVotes": 149033,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Angela Gonzales-Torres",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 90919
+      },
+      {
+        "name": "Jimmy Gomez",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 58114
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0637-general",
+    "office": "house",
+    "geoid": "0637",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/37",
+    "contest": "U.S. House of Representatives District 37",
+    "totalVotes": 158766,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Sydney Kamlager-Dove",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 97626
+      },
+      {
+        "name": "Samantha Mota",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 61140
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-0640-general",
+    "office": "house",
+    "geoid": "0640",
+    "stateFips": "06",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "California Secretary of State",
+    "url": "https://electionresults.sos.ca.gov/returns/us-rep/district/40",
+    "contest": "U.S. House of Representatives District 40",
+    "totalVotes": 163393,
+    "updatedAt": "2026-11-07T01:37:00+00:00",
+    "retrievedAt": "2026-11-07T04:32:14+00:00",
+    "candidates": [
+      {
+        "name": "Ken Calvert",
+        "party": "R",
+        "partyRaw": "Rep",
+        "votes": 88111
+      },
+      {
+        "name": "Young Kim",
+        "party": "R",
+        "partyRaw": "Rep",
+        "votes": 75282
+      }
+    ],
+    "absentMajorParties": [
+      "D"
+    ],
+    "ballotSourceUrl": "https://media.sos.ca.gov/"
+  },
+  {
+    "id": "house-1210-general",
+    "office": "house",
+    "geoid": "1210",
+    "stateFips": "12",
+    "kind": "general",
+    "totalVotes": null,
+    "status": "aggregated",
+    "source": "Ballotpedia",
+    "url": "https://ballotpedia.org/Florida%27s_10th_Congressional_District_election%2C_2026",
+    "updatedAt": "2026-11-04T01:01:11Z",
+    "candidates": [
+      {
+        "name": "Maxwell Frost",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": null
+      }
+    ],
+    "noBallot": true
+  },
+  {
+    "id": "house-2302-general",
+    "office": "house",
+    "geoid": "2302",
+    "stateFips": "23",
+    "kind": "general",
+    "totalVotes": 335231,
+    "status": "official-preliminary",
+    "source": "Maine Secretary of State",
+    "url": "https://www1.maine.gov/sos/news/ranked-choice-voting-tabulation-results-announced-maine-congressional-district-2",
+    "updatedAt": "2026-11-12T00:00:00-05:00",
+    "basis": "first-choice",
+    "candidates": [
+      {
+        "name": "Paul LePage",
+        "party": "R",
+        "partyRaw": "REP",
+        "votes": 170263
+      },
+      {
+        "name": "Matthew Dunlap",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 164845
+      },
+      {
+        "name": "Write-in",
+        "party": "other",
+        "partyRaw": "OTH",
+        "votes": 123
+      }
+    ]
+  },
+  {
+    "id": "house-2501-general",
+    "office": "house",
+    "geoid": "2501",
+    "stateFips": "25",
+    "kind": "general",
+    "totalVotes": 271347,
+    "status": "aggregated",
+    "source": "Polling Desk / civicAPI",
+    "url": "https://polling-desk.com/races/2026/house/ma-01",
+    "updatedAt": "2026-11-10T19:55:16Z",
+    "candidates": [
+      {
+        "name": "Richard E. Neal",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 177556
+      },
+      {
+        "name": "Nadia Donya Milleron",
+        "party": "other",
+        "partyRaw": "OTH",
+        "votes": 93791
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://www.wcvb.com/article/massachusetts-congress-election-results-2026/74263612"
+  },
+  {
+    "id": "house-2502-general",
+    "office": "house",
+    "geoid": "2502",
+    "stateFips": "25",
+    "kind": "general",
+    "totalVotes": 198782,
+    "status": "aggregated",
+    "source": "Polling Desk / civicAPI",
+    "url": "https://polling-desk.com/races/2026/house/ma-02",
+    "updatedAt": "2026-11-07T17:00:19Z",
+    "candidates": [
+      {
+        "name": "James P. McGovern",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 198782
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://www.wcvb.com/article/massachusetts-congress-election-results-2026/74263612"
+  },
+  {
+    "id": "house-2505-general",
+    "office": "house",
+    "geoid": "2505",
+    "stateFips": "25",
+    "kind": "general",
+    "totalVotes": 206925,
+    "status": "aggregated",
+    "source": "Polling Desk / civicAPI",
+    "url": "https://polling-desk.com/races/2026/house/ma-05",
+    "updatedAt": "2026-11-07T17:00:19Z",
+    "candidates": [
+      {
+        "name": "Katherine M. Clark",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 206925
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://www.wcvb.com/article/massachusetts-congress-election-results-2026/74263612"
+  },
+  {
+    "id": "house-2507-general",
+    "office": "house",
+    "geoid": "2507",
+    "stateFips": "25",
+    "kind": "general",
+    "totalVotes": 158384,
+    "status": "aggregated",
+    "source": "Polling Desk / civicAPI",
+    "url": "https://polling-desk.com/races/2026/house/ma-07",
+    "updatedAt": "2026-11-07T17:00:19Z",
+    "candidates": [
+      {
+        "name": "Ayanna S. Pressley",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 158384
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://www.wcvb.com/article/massachusetts-congress-election-results-2026/74263612"
+  },
+  {
+    "id": "house-3408-general",
+    "office": "house",
+    "geoid": "3408",
+    "stateFips": "34",
+    "kind": "general",
+    "totalVotes": 127376,
+    "status": "aggregated",
+    "source": "Polling Desk / civicAPI",
+    "url": "https://polling-desk.com/races/2026/house/nj-08",
+    "updatedAt": "2026-11-12T16:40:45Z",
+    "candidates": [
+      {
+        "name": "Rob Menendez",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 112079
+      },
+      {
+        "name": "Craig Honts",
+        "party": "other",
+        "partyRaw": "OTH",
+        "votes": 5406
+      },
+      {
+        "name": "Aristotle Eliopoulos",
+        "party": "other",
+        "partyRaw": "IND",
+        "votes": 5350
+      },
+      {
+        "name": "Da'Shone Hughey",
+        "party": "other",
+        "partyRaw": "IND",
+        "votes": 3708
+      },
+      {
+        "name": "Write-in",
+        "party": "other",
+        "partyRaw": "OTH",
+        "votes": 833
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://www.nj.gov/state/elections/assets/pdf/election-results/2026/2026-official-general-candidates-us-house-0904.pdf"
+  },
+  {
+    "id": "house-4203-general",
+    "office": "house",
+    "geoid": "4203",
+    "stateFips": "42",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "Pennsylvania Department of State",
+    "url": "https://www.electionreturns.pa.gov/",
+    "contest": "Representative in Congress District 3",
+    "totalVotes": 271524,
+    "updatedAt": null,
+    "retrievedAt": "2026-11-07T04:35:10+00:00",
+    "candidates": [
+      {
+        "name": "Chris Rabb",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 254163
+      },
+      {
+        "name": "Dennis Mahoney",
+        "party": "other",
+        "partyRaw": "TIP",
+        "votes": 17361
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://www.spotlightpa.org/news/2026/09/pennsylvania-2026-congressional-election-guide-tossup-districts-elections/"
+  },
+  {
+    "id": "house-4901-general",
+    "office": "house",
+    "geoid": "4901",
+    "stateFips": "49",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "Utah Secretary of State",
+    "url": "https://electionresults.utah.gov/results/public/Utah/elections/General11032026",
+    "contest": "U.S. House District 1",
+    "totalVotes": 235280,
+    "updatedAt": "2026-11-07T02:34:52.799514+00:00",
+    "retrievedAt": "2026-11-07T04:35:29+00:00",
+    "candidates": [
+      {
+        "name": "BEN MCADAMS",
+        "party": "D",
+        "partyRaw": "Democratic",
+        "votes": 165422
+      },
+      {
+        "name": "RILEY OWEN",
+        "party": "R",
+        "partyRaw": "Republican",
+        "votes": 61230
+      },
+      {
+        "name": "JESSE WEST",
+        "party": "other",
+        "partyRaw": "Libertarian",
+        "votes": 5227
+      },
+      {
+        "name": "ELIAS HENRY MONTGOMERY",
+        "party": "other",
+        "partyRaw": "Unaffiliated",
+        "votes": 3330
+      },
+      {
+        "name": "BABAK \"BOBBY\" DARVISH",
+        "party": "other",
+        "partyRaw": "Unaffiliated",
+        "votes": 71
+      }
+    ],
+    "ballotSourceUrl": "https://vote.utah.gov/2026-candidate-filings/"
+  },
+  {
+    "id": "house-4902-general",
+    "office": "house",
+    "geoid": "4902",
+    "stateFips": "49",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "Utah Secretary of State",
+    "url": "https://electionresults.utah.gov/results/public/Utah/elections/General11032026",
+    "contest": "U.S. House District 2",
+    "totalVotes": 253386,
+    "updatedAt": "2026-11-07T02:34:52.799514+00:00",
+    "retrievedAt": "2026-11-07T04:35:29+00:00",
+    "candidates": [
+      {
+        "name": "BLAKE D. MOORE",
+        "party": "R",
+        "partyRaw": "Republican",
+        "votes": 126992
+      },
+      {
+        "name": "PETER CROSBY",
+        "party": "D",
+        "partyRaw": "Democratic",
+        "votes": 106944
+      },
+      {
+        "name": "CARLTON E. BOWEN",
+        "party": "other",
+        "partyRaw": "Independent American",
+        "votes": 8402
+      },
+      {
+        "name": "ROBERT M. MOESINGER",
+        "party": "other",
+        "partyRaw": "Unaffiliated",
+        "votes": 6502
+      },
+      {
+        "name": "DANIEL COTTAM",
+        "party": "other",
+        "partyRaw": "Libertarian",
+        "votes": 4546
+      }
+    ],
+    "ballotSourceUrl": "https://vote.utah.gov/2026-candidate-filings/"
+  },
+  {
+    "id": "house-4903-general",
+    "office": "house",
+    "geoid": "4903",
+    "stateFips": "49",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "Utah Secretary of State",
+    "url": "https://electionresults.utah.gov/results/public/Utah/elections/General11032026",
+    "contest": "U.S. House District 3",
+    "totalVotes": 247220,
+    "updatedAt": "2026-11-07T02:34:52.799514+00:00",
+    "retrievedAt": "2026-11-07T04:35:29+00:00",
+    "candidates": [
+      {
+        "name": "CELESTE MALOY",
+        "party": "R",
+        "partyRaw": "Republican",
+        "votes": 141914
+      },
+      {
+        "name": "KENT S. UDELL",
+        "party": "D",
+        "partyRaw": "Democratic",
+        "votes": 86263
+      },
+      {
+        "name": "CASSIE EASLEY",
+        "party": "other",
+        "partyRaw": "Constitution",
+        "votes": 7741
+      },
+      {
+        "name": "MICHAEL R. STODDARD",
+        "party": "other",
+        "partyRaw": "Libertarian",
+        "votes": 5526
+      },
+      {
+        "name": "AYDEN SCOTT",
+        "party": "other",
+        "partyRaw": "Unaffiliated",
+        "votes": 4069
+      },
+      {
+        "name": "ADONIS HOOSLYN",
+        "party": "other",
+        "partyRaw": "Unaffiliated",
+        "votes": 1707
+      }
+    ],
+    "ballotSourceUrl": "https://vote.utah.gov/2026-candidate-filings/"
+  },
+  {
+    "id": "house-4904-general",
+    "office": "house",
+    "geoid": "4904",
+    "stateFips": "49",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "Utah Secretary of State",
+    "url": "https://electionresults.utah.gov/results/public/Utah/elections/General11032026",
+    "contest": "U.S. House District 4",
+    "totalVotes": 255154,
+    "updatedAt": "2026-11-07T02:34:52.799514+00:00",
+    "retrievedAt": "2026-11-07T04:35:29+00:00",
+    "candidates": [
+      {
+        "name": "MIKE KENNEDY",
+        "party": "R",
+        "partyRaw": "Republican",
+        "votes": 137086
+      },
+      {
+        "name": "JONNY LARSEN",
+        "party": "D",
+        "partyRaw": "Democratic",
+        "votes": 98946
+      },
+      {
+        "name": "STEVEN BURT",
+        "party": "other",
+        "partyRaw": "Unaffiliated",
+        "votes": 10933
+      },
+      {
+        "name": "TAYLOR WRIGHT",
+        "party": "other",
+        "partyRaw": "Libertarian",
+        "votes": 8189
+      }
+    ],
+    "ballotSourceUrl": "https://vote.utah.gov/2026-candidate-filings/"
+  },
+  {
+    "id": "house-5502-general",
+    "office": "house",
+    "geoid": "5502",
+    "stateFips": "55",
+    "kind": "general",
+    "totalVotes": 317125,
+    "status": "aggregated",
+    "source": "Polling Desk / civicAPI",
+    "url": "https://polling-desk.com/races/2026/house/wi-02",
+    "updatedAt": "2026-11-07T17:00:19Z",
+    "candidates": [
+      {
+        "name": "Mark Pocan",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 317125
+      }
+    ],
+    "absentMajorParties": [
+      "R"
+    ],
+    "ballotSourceUrl": "https://voterguide26.wisconsinwatch.org/race/congress/co-2/"
   }
 ]

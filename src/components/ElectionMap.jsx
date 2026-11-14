@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { GeoJSON, MapContainer, useMap } from 'react-leaflet';
-import { formatMargin, marginParty } from '../utils/geojsonUtils.js';
+import { areaName, formatMargin, formatPercent, marginParty } from '../utils/geojsonUtils.js';
 import { parties } from '../config/elections.js';
 import { featureColor } from '../utils/colorScales.js';
 
@@ -24,10 +24,7 @@ function FitRegion({ bounds }) {
     if (!container) return undefined;
     const fit = () => map.fitBounds(bounds, { padding: [12, 12], animate: false });
     fit();
-    const observer = new ResizeObserver(() => {
-      map.invalidateSize({ pan: false });
-      fit();
-    });
+    const observer = new ResizeObserver(() => map.invalidateSize({ pan: false }));
     observer.observe(container);
     return () => observer.disconnect();
   }, [bounds, map]);
@@ -63,16 +60,19 @@ function MapRegion({ region, features, raceFor, metric, selected, select, view }
       const title = document.createElement('strong');
       const { raceFor: currentRaceFor, metric: currentMetric } = tooltipContext.current;
       const race = currentRaceFor(properties.geoid);
-      const byParty = currentMetric === 'margin' || Boolean(race?.districtCount);
-      const advantage = byParty ? race?.demMargin : race?.leaderMargin;
-      const name = byParty ? parties[marginParty(advantage)] : race?.leader?.name;
-      const tie = byParty ? advantage === 0 : race?.tie;
-      title.textContent = name ?? (tie ? 'Равенство голосов' : 'Нет данных о преимуществе');
-      tooltip.append(title);
-      if (advantage != null) {
-        const margin = document.createElement('div');
-        margin.textContent = formatMargin(advantage);
-        tooltip.append(margin);
+      const byParty = currentMetric === 'margin';
+      const value = byParty ? race?.demMargin : race?.leaderShare;
+      const name = byParty ? parties[marginParty(value)] : race?.leader?.name;
+      const tie = byParty ? value === 0 : race?.tie;
+      title.textContent = areaName(properties);
+      const detail = document.createElement('div');
+      detail.textContent = name ?? (tie ? 'Равенство голосов' : race?.noBallot
+        ? 'Кандидат избран без голосования' : 'Нет данных для этого показателя');
+      tooltip.append(title, detail);
+      if (value != null) {
+        const formatted = document.createElement('div');
+        formatted.textContent = byParty ? formatMargin(value) : formatPercent(value);
+        tooltip.append(formatted);
       }
       return tooltip;
     }, { sticky: true });
@@ -90,7 +90,7 @@ function MapRegion({ region, features, raceFor, metric, selected, select, view }
     bounds={region.bounds} attributionControl={false} zoomControl={region.key === 'main'}
     zoomSnap={0.25} maxZoom={12} scrollWheelZoom={false} dragging={region.key === 'main'}
     doubleClickZoom={region.key === 'main'} touchZoom={region.key === 'main'}
-    keyboard={region.key === 'main'} boxZoom={region.key === 'main'} zoomAnimation={false}>
+    keyboard={region.key === 'main'} boxZoom={false} zoomAnimation={false}>
     <FitRegion bounds={region.bounds} />
     <GeoJSON key={view} ref={layerRef} data={data} style={style} onEachFeature={bind} />
   </MapContainer>;

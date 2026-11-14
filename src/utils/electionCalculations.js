@@ -16,12 +16,15 @@ export function summarizeRace(race) {
     ? candidates.find((c) => c.name === race.winnerName)
     : null;
   const unmatchedWriteIn = first && candidates.some((c) => !isCandidate(c) && c.votes >= first.votes);
-  const leader = declared || (!tie && !unmatchedWriteIn ? first : null) || null;
+  const unopposed = race.noBallot && candidates.length === 1 ? candidates[0] : null;
+  const leader = declared || unopposed || (!tie && !unmatchedWriteIn ? first : null) || null;
   const runnerUp = ranked.find((candidate) => candidate !== leader) || null;
   const demVotes = complete && candidates.some((c) => c.party === 'D') ? countFor(candidates, 'D') : null;
   const repVotes = complete && candidates.some((c) => c.party === 'R') ? countFor(candidates, 'R') : null;
   return {
-    ...race, complete, tie, leader, declaredWinner: declared ?? null, demVotes, repVotes,
+    ...race, complete, tie, leader, declaredWinner: declared ?? unopposed, demVotes, repVotes,
+    leaderShare: leader && isVoteCount(leader.votes) && totalVotes > 0
+      ? leader.votes * 100 / totalVotes : null,
     demMargin: demVotes === null || repVotes === null ? null : (demVotes - repVotes) * 100 / totalVotes,
     leaderMargin: complete && leader && runnerUp && candidates.filter(isCandidate).length >= 2
       ? (leader.votes - runnerUp.votes) * 100 / totalVotes : null,
@@ -44,14 +47,19 @@ export function summarizeStates(features, races) {
       continue;
     }
     const known = entries.filter(Boolean);
-    const comparable = entries.every((r) => r?.complete && r.demMargin !== null && !r.basis);
+    const counted = known.filter((race) => !race.noBallot);
+    const bases = new Set(counted.map((race) => race.basis ?? null));
+    const comparable = known.length === entries.length && bases.size === 1 && counted.every((race) =>
+      race.complete && [['D', race.demVotes], ['R', race.repVotes]]
+        .every(([party, votes]) => votes !== null || race.absentMajorParties?.includes(party)));
+    const basis = comparable ? counted[0].basis : undefined;
     const votes = { D: 0, R: 0, other: 0 };
     let totalVotes = null;
     if (comparable) {
-      totalVotes = known.reduce((sum, r) => sum + r.totalVotes, 0);
-      for (const race of known) {
-        votes.D += race.demVotes;
-        votes.R += race.repVotes;
+      totalVotes = counted.reduce((sum, r) => sum + r.totalVotes, 0);
+      for (const race of counted) {
+        votes.D += race.demVotes ?? 0;
+        votes.R += race.repVotes ?? 0;
       }
       votes.other = totalVotes - votes.D - votes.R;
     }
@@ -59,7 +67,8 @@ export function summarizeStates(features, races) {
     const result = summarizeRace({
       id: 'state-' + state, office: 'house', geoid: state, stateFips: state, kind: 'general',
       status: statuses.size === 1 ? known[0].status : 'mixed-preliminary', totalVotes,
-      districtCount: entries.length, availableCount: known.length, comparable,
+      districtCount: entries.length, availableCount: counted.length, comparable, basis,
+      noBallotCount: known.length - counted.length,
       sources: [...new Map(known.map((r) => [r.source, { source: r.source, url: r.url }])).values()],
       candidates: [
         { name: 'Демократы', party: 'D', votes: comparable ? votes.D : null },
@@ -67,7 +76,10 @@ export function summarizeStates(features, races) {
         { name: 'Прочие голоса', party: 'other', votes: comparable ? votes.other : null },
       ],
     });
-    if (result.leader?.party === 'other') result.leader = null;
+    if (result.leader?.party === 'other') {
+      result.leader = null;
+      result.leaderShare = null;
+    }
     result.leaderMargin = null;
     output.set(state, [result]);
   }
