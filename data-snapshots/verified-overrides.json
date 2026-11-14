@@ -1,0 +1,108 @@
+[
+  {
+    "id": "senate-02-general",
+    "office": "senate",
+    "geoid": "02",
+    "stateFips": "02",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "Alaska Division of Elections",
+    "url": "https://www.elections.alaska.gov/enr/26GENR/results/GA_ENR_Precinct_State_of_Alaska.csv",
+    "basis": "first-choice",
+    "retrievedAt": "2026-11-14T21:51:00Z",
+    "totalVotes": 276513,
+    "candidates": [
+      {
+        "name": "Peltola, Mary",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 138240
+      },
+      {
+        "name": "Sullivan, Dan S.",
+        "party": "R",
+        "partyRaw": "REP",
+        "votes": 127828
+      },
+      {
+        "name": "Heikes, Gerald L.",
+        "party": "R",
+        "partyRaw": "REP",
+        "votes": 5885
+      },
+      {
+        "name": "Sullivan, Daniel J. Jr.",
+        "party": null,
+        "partyRaw": "",
+        "votes": 4560
+      }
+    ]
+  },
+  {
+    "id": "house-0200-general",
+    "office": "house",
+    "geoid": "0200",
+    "stateFips": "02",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "Alaska Division of Elections",
+    "url": "https://www.elections.alaska.gov/enr/26GENR/results/GA_ENR_Precinct_State_of_Alaska.csv",
+    "basis": "first-choice",
+    "retrievedAt": "2026-11-14T21:51:00Z",
+    "totalVotes": 275688,
+    "candidates": [
+      {
+        "name": "Begich, Nick",
+        "party": "R",
+        "partyRaw": "REP",
+        "votes": 132053
+      },
+      {
+        "name": "Hill, Bill",
+        "party": "other",
+        "partyRaw": "NON",
+        "votes": 115220
+      },
+      {
+        "name": "Hafner, Eric",
+        "party": "D",
+        "partyRaw": "DEM",
+        "votes": 21187
+      },
+      {
+        "name": "McDermott, James C. \"Jim\"",
+        "party": "other",
+        "partyRaw": "LIB",
+        "votes": 7228
+      }
+    ]
+  },
+  {
+    "id": "senate-13-general",
+    "office": "senate",
+    "geoid": "13",
+    "stateFips": "13",
+    "kind": "general",
+    "status": "official-preliminary",
+    "source": "Georgia Secretary of State",
+    "url": "https://results.sos.ga.gov/results/public/Georgia/elections/11032026GeneralAndSpecialElection/ballot-items/01000000-3a82-a359-4042-08df23e5ff36",
+    "contest": "US Senate",
+    "totalVotes": 4179281,
+    "updatedAt": "2026-11-07T00:58:49-05:00",
+    "retrievedAt": "2026-11-07T04:32:26+00:00",
+    "candidates": [
+      {
+        "name": "Jon Ossoff (I) (Dem)",
+        "party": "D",
+        "partyRaw": "Dem",
+        "votes": 2466695
+      },
+      {
+        "name": "Mike Collins (Rep)",
+        "party": "R",
+        "partyRaw": "Rep",
+        "votes": 1712586
+      }
+    ]
+  }
+]
